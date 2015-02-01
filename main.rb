@@ -19,6 +19,20 @@ flyers = []
 end
 
 flyers.each do |f|
-  puts "#{f.name} - #{f.miles_flown}"
+  puts "#{f.name} - #{f.miles_flown} miles"
+end
+
+total = 0
+
+flyers.each do |f|
+  total+= f.miles_flown
+end
+
+puts "Total miles flown: #{total}"
+
+promotions = { "United" => 1.5, "Delta" => 2.0, "Lufthansa" => 2.5 }
+
+promotions.each do |k,v|
+  puts "Earn #{v}x miles by flying #{k}!"
 end
 
