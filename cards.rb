@@ -1,0 +1,1 @@
+cards = ["Jack", "Queen", "King", "Ace", "Joker"]
