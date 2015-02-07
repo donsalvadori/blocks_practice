@@ -9,3 +9,11 @@ puts "-----"
 low_scores = scores.reject {|n| n>80}
 
 puts low_scores
+
+puts "-----"
+
+puts scores.any? { |n| n < 70}
+
+puts "-----"
+
+puts scores.detect {|n| n < 70}
