@@ -36,3 +36,9 @@ promotions.each do |k,v|
   puts "Earn #{v}x miles by flying #{k}!"
 end
 
+flyers.each do |flyer|
+  promotions.each do |airline, multiplier|
+    puts "#{flyer.name} could earn #{flyer.miles_flown * multiplier} miles by flying #{airline}!"
+  end
+end
+
