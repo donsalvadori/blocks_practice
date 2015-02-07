@@ -32,3 +32,13 @@ scores = [83, 71, 92, 64, 98, 87, 75, 69]
 
 scores_doubled = scores.map {|n| n * 2}
 puts scores_doubled
+
+total = scores.reduce(0, :+)
+puts "Total score: #{total}"
+
+
+even, odd = scores.partition {|n| n.even?}
+puts "Evens:"
+p even
+puts "Odds:"
+p odd
