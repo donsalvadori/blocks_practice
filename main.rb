@@ -44,6 +44,23 @@ puts "----"
 name_tag = flyers.map {|f| "#{f.name.capitalize} (#{f.status.upcase})"}
 p name_tag
 
+puts "----"
+
+conversion_km = flyers.map {|f| f.miles_flown * 1.6}
+p conversion_km
+
+puts "----"
+
+total_miles_flown = flyers.reduce(0) { |sum, flyer| sum + flyer.miles_flown }
+
+puts "Total miles flown: #{total_miles_flown}"
+
+puts "----"
+
+total_kms_flown = flyers.map { |flyer| flyer.miles_flown * 1.6 }.reduce(0, :+)
+puts "Total km flown: #{total_kms_flown}"
+
+
 # flyers = []
 
 # 1.upto(5) do |n|
