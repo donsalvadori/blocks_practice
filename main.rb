@@ -31,6 +31,19 @@ puts flyers.any? {|flyer| flyer.status == :platinum}
 first_bronze_flyer = flyers.detect { |flyer| flyer.status == :bronze }
 puts first_bronze_flyer
 
+puts "----"
+
+platinum_flyers, coach_flyers = flyers.partition {|f| f.status == :platinum} 
+
+puts platinum_flyers
+puts "----"
+puts coach_flyers
+
+puts "----"
+
+name_tag = flyers.map {|f| "#{f.name.capitalize} (#{f.status.upcase})"}
+p name_tag
+
 # flyers = []
 
 # 1.upto(5) do |n|
