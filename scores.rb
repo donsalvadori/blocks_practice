@@ -17,3 +17,13 @@ puts scores.any? { |n| n < 70}
 puts "-----"
 
 puts scores.detect {|n| n < 70}
+
+puts "-----"
+
+scores.select! { |score| score > 70 }
+puts scores
+
+puts "-----"
+
+scores.reject! { |score| score.even? }
+p scores
