@@ -61,6 +61,7 @@ total_kms_flown = flyers.map { |flyer| flyer.miles_flown * 1.6 }.reduce(0, :+)
 puts "Total km flown: #{total_kms_flown}"
 
 
+
 # flyers = []
 
 # 1.upto(5) do |n|
