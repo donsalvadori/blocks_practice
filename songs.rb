@@ -10,11 +10,18 @@ class Song
   def play
     puts "Playing '#{name}' by #{artist} (#{duration} mins)..."
   end
+
+  def each_filename
+    basename = "#{name}-#{artist}".gsub(" ", "-").downcase
+    extensions = [".mp3", ".wav", ".aac"]
+    extensions.each { |ext| yield basename + ext }
+  end
 end
 
 song1 = Song.new("Adore", "Prince", 5)
 song2 = Song.new("Ramblin' Man", "Allman Bros", 7)
 song3 = Song.new("Layla", "Eric Clapton", 6)
+
 
 class Playlist
   include Enumerable
@@ -61,3 +68,7 @@ total_duration = playlist.reduce(0) { |sum, song| sum + song.duration }
 p total_duration
 
 playlist.each_tagline { |tagline| puts tagline }
+
+playlist.each_by_artist("Eric Clapton") { |song| song.play }
+
+
