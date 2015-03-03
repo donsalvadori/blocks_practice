@@ -5,7 +5,7 @@ def deal(number_of_cards)
     number_of_cards.times do
       random_face = faces.sample
       random_suit = suits.sample
-      score = yield(random_face,random_suit)
+      score = yield random_face, random_suit
       puts "You scored a #{score}!"
     end
   else

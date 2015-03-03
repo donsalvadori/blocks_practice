@@ -22,7 +22,7 @@ n_times(5) do |n|
   puts "#{n} pushups"
   puts "#{n} chinups"
 end
-
+ 
 # def progress
 #   0.step(by: 10, to: 100) do |number|
 #     yield number
