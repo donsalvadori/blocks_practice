@@ -35,6 +35,10 @@ class Playlist
   def play_songs
     each { |song| song.play }
   end
+
+  def each_tagline
+  @songs.each { |song| yield "#{song.name} - #{song.artist}" }
+  end
 end
 
 playlist = Playlist.new("Classic Hits")
