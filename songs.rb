@@ -37,7 +37,11 @@ class Playlist
   end
 
   def each_tagline
-  @songs.each { |song| yield "#{song.name} - #{song.artist}" }
+    @songs.each { |song| yield "#{song.name} - #{song.artist}" }
+  end
+
+  def each_by_artist(artist)
+    select { |song| song.artist == artist }.each { |song| yield song }
   end
 end
 
@@ -55,3 +59,5 @@ p prince_songs
 
 total_duration = playlist.reduce(0) { |sum, song| sum + song.duration }
 p total_duration
+
+playlist.each_tagline { |tagline| puts tagline }
