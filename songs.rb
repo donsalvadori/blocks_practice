@@ -23,6 +23,8 @@ song2 = Song.new("Ramblin' Man", "Allman Bros", 7)
 song3 = Song.new("Layla", "Eric Clapton", 6)
 
 
+song1.each_filename { |filename| puts filename }
+
 class Playlist
   include Enumerable
   
