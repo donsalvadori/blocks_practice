@@ -1,3 +1,5 @@
+require_relative 'my_enumerable'
+
 class Song
   attr_reader :name, :artist, :duration
 
@@ -26,8 +28,9 @@ song3 = Song.new("Layla", "Eric Clapton", 6)
 song1.each_filename { |filename| puts filename }
 
 class Playlist
-  include Enumerable
-  
+  #include Enumerable
+  include MyEnumerable
+
   def initialize(name)
     @name = name
     @songs = []
@@ -63,14 +66,17 @@ playlist.each { |song| song.play }
 playlist.play_songs
 
 
-prince_songs = playlist.select { |song| song.artist =~ /Prince/ }
+prince_songs = playlist.my_select { |song| song.artist =~ /Prince/ }
 p prince_songs
 
-total_duration = playlist.reduce(0) { |sum, song| sum + song.duration }
-p total_duration
+song_labels = playlist.my_map { |song| "#{song.name} - #{song.artist}" }
+p song_labels
 
-playlist.each_tagline { |tagline| puts tagline }
+# total_duration = playlist.reduce(0) { |sum, song| sum + song.duration }
+# p total_duration
 
-playlist.each_by_artist("Eric Clapton") { |song| song.play }
+# playlist.each_tagline { |tagline| puts tagline }
+
+# playlist.each_by_artist("Eric Clapton") { |song| song.play }
 
 
