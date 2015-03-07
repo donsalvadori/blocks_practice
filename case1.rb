@@ -26,10 +26,17 @@ end
 
 sensor = Sensor.new
 
-puts "Checking water temperature..."
-result = sensor.temperature < 150
-if result
-  puts "OK"
-else
-  puts "FAILED!"
+def with_checking(description)
+  puts "Checking #{description}..."
+  result = yield
+  if result
+    puts "OK"
+  else
+    puts "FAILED!"
+  end
 end
+
+
+with_checking("temperature"){ sensor.temperature < 150 }
+with_checking("level"){ sensor.level > 3 }
+
