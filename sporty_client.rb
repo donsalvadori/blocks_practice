@@ -26,6 +26,8 @@ class SportyClient
     sign_in(user)
     begin
       yield
+      rescue Exception => e
+      puts e.message
     ensure
       sign_out(user)
     end
@@ -34,8 +36,14 @@ end
 
 client = SportyClient.new
 
-client.as_signed_in_user("broncos_fan") do
-  client.post("Ready for the new season...")
-  client.post("Broncos are going all the way!")
-  client.timeline
+client.as_signed_in_user("seahawker") do
+  client.post("Not if we can help it...")
+  raise "SYSTEM ABORT!"
 end
+
+
+# client.as_signed_in_user("broncos_fan") do
+#   client.post("Ready for the new season...")
+#   client.post("Broncos are going all the way!")
+#   client.timeline
+# end
