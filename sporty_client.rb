@@ -25,7 +25,7 @@ class SportyClient
   def as_signed_in_user(user)
     sign_in(user)
     begin
-      yield
+      yield 
       rescue Exception => e
       puts e.message
     ensure
