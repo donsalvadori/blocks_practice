@@ -26,16 +26,26 @@ class DatabaseDriver
   def self.open(database, user, password)
     driver = self.new(database, user, password)
     driver.connect
+    
+    return driver unless block_given?
+
     begin
       yield driver
+    rescue Exception => e
+      puts e.message
     ensure
       driver.disconnect
     end
   end
 end
 
-
 DatabaseDriver.open("my_database", "admin", "secret") do |driver|
-  driver.execute("SELECT * FROM ORDERS")
-  driver.execute("SELECT * FROM USERS")
+  driver.execute("DELETE * FROM ORDERS")
+  raise "Boom!"
+  driver.execute("DELETE * FROM USERS")
 end
+
+# DatabaseDriver.open("my_database", "admin", "secret") do |driver|
+#   driver.execute("SELECT * FROM ORDERS")
+#   driver.execute("SELECT * FROM USERS")
+# end
